@@ -1,0 +1,19 @@
+version: '2.4'
+services:
+  ai-ftes-be:
+    image: hotonbao/ai-ftes-be:latest
+    platform: linux/amd64
+    container_name: ai-ftes-be
+    ports:
+      - "7860:7860"
+    mem_limit: 700m
+    memswap_limit: -1
+    restart: unless-stopped
+    networks:
+      - monitoring
+    env_file:
+      - .env
+
+networks:
+  monitoring:
+    external: true
